@@ -34,5 +34,5 @@ data2 = np.array([
     [4,5,6]  #2열
 ])
 
-print(np.mean(data2, axis=0)) #1열의 평균
-print(np.mean(data2, axis=1)) #2열의 평균
+print(np.mean(data2, axis=0)) # axis=0 은 열의 평균
+print(np.mean(data2, axis=1)) # axis=1 은 행의 평균 
