@@ -39,4 +39,4 @@ print("standard scaling결과 : \n", standardScaled)
 
 #! 변수간 scale차이가 크면 정규화
     #이상치x 시각화o => Min-Max
-    #이상치o         => Standard
+    #이상치o 분석o   => Standard
