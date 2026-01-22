@@ -36,3 +36,22 @@ data2 = np.array([
 
 print(np.mean(data2, axis=0)) # axis=0 은 열의 평균
 print(np.mean(data2, axis=1)) # axis=1 은 행의 평균 
+
+
+#USING PANDAS
+    #PANDAS는
+    #1차원 데이터는 Series
+    #2차원 데이터는 DataFrame을 사용한다
+import pandas as pd
+
+# data = np.array([10,20,30,40,50]) numpy가 이렇게 했다면
+print("💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦💦")
+data3 = pd.Series([10,20,30,40,50,60])
+print(data) #numpy는 리스트 형태로
+print(data3) #pandas는 index와 함께 출력
+print(data3.values) #numpy처럼 값만 보려면 .values
+
+#기타 연산은 같음 (ex mean, sum)
+#Series는 1차원 고정이라 2차원으로 reshape하기 위해선 DataFrame으로 변환해야함
+new_data3 = pd.DataFrame(data3.values.reshape(2,3))
+print(new_data3)
