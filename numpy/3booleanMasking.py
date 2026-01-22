@@ -55,7 +55,7 @@ mask = df['battery'].notna() & df['battery'].between(10, 50)
 print(mask)
 
 result = df.loc[mask, ['phone_name', 'price']]
-    #loc[조건(행), 원하는 열]
+    #loc[조건, 원하는 열]
 
 print("### 배터리 정상 폰의 가격표 ###")
 print(result)
