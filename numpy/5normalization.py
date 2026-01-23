@@ -40,3 +40,37 @@ print("standard scaling결과 : \n", standardScaled)
 #! 변수간 scale차이가 크면 정규화
     #이상치x 시각화o => Min-Max
     #이상치o 분석os   => Standard
+
+
+print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
+
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+df = pd.DataFrame({
+    'age': [25, 30, 35, 40, 45, 50, 55, 60],
+    'income': [3000, 4000, 5000, 6000, 7000, 8000, 9000, 99999], 
+    'score': [60, 65, 70, 75, 80, 85, 90, 95]
+})
+
+#pandas로 정규화
+df_min_max = (df - df.min()) / (df.max() - df.min())
+    #최대값은1, 최소값은 0이 된다
+df_standard = (df - df.mean()) / df.std()
+print("min_max 정규화 : \n", df_min_max.round(3))
+    #income에서 이상치로 인해 0으로 쏠림
+print("\nstandard 정규화 : \n", df_standard)
+
+#scikit-learn 활용 정규화
+MMS= MinMaxScaler()
+SDC = StandardScaler()
+
+df_mm_scaled = pd.DataFrame(MMS.fit_transform(df), columns = df.columns)
+df_std_scaled = pd.DataFrame(SDC.fit_transform(df), columns = df.columns)
+    #fit()으로 평균,편차 찾기 : 학습 데이터 사용(train)
+    #tranform()은 fit()으로 찾은 기준대로 데이터 작업 : 모든 데이터 사용
+    #fit_transform() : 기준찾고 데이터 작업 함께
+
+print("min_max sklearn \n", df_mm_scaled)
+print("std sklearn \n", df_std_scaled)
+    #numpy와 마찬가지로 자유도(ddof=0)이라 pandas와 값이 다르게 나옴
